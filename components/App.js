@@ -2,11 +2,11 @@ import React from 'react'
 import Holder from './Holder'
 import Nav from './Nav'
 
-export default function App () {
+export default function App ({data}) {
   return (
     <>
       <Nav />
-      <Holder/>
+      <Holder data={data}/>
     </>
   )
 }
