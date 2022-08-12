@@ -1,6 +1,6 @@
-export default function GoogleButton({text}) {
+export default function GoogleButton({text, func}) {
   return (
-    <button className="ml-4 px-4 bg-custompink rounded-sm py-1 border-[3px] border-blue1left">
+    <button className="ml-4 px-4 bg-custompink rounded-sm py-1 border-[3px] border-blue1left" onClick={func}>
         {/* <FontAwesomeIcon icon={faGoogle} className="pr-2"/> */}
         <div className='flex items-center justify-center'>
           <div>

@@ -1,10 +1,8 @@
-import React from 'react'
-
-export default function DropDown({ options, label }) {
+export default function DropDown({ options, label, setter }) {
     return (
         <div>
-            <label for={label} className="inline-block w-[35%]">{label}:</label>
-            <select name={label} id={label} className="inline-block w-[60%]">
+            <label htmlFor={label} className="inline-block w-[35%]">{label}:</label>
+            <select name={label} id={label} onChange={() => setter(event.target.value)} className="inline-block w-[60%]">
                 {options.map(option => <option value={option} key={option}>{option}</option>)}
             </select>
         </div>
