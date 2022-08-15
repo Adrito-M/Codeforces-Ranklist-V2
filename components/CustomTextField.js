@@ -6,13 +6,14 @@ export default function CustomTextField({type="outlined", label, size="small", o
 			type={type}
 			variant="outlined"
 			label={label}
-			className={"mx-8 bg-searchbg rounded-full "+className}
+			className={"mx-8 "+className}
 			size={size}
 			sx={{
 				'& fieldset': {
 					borderRadius: '9999px',
 					borderColor: 'rgb(60, 141, 236)!important',
-					// backgroundColor: 'rgb(12, 14, 32)!important',
+					backgroundColor: 'rgb(12, 14, 32)!important',
+					zIndex: -1,
 				},
 				'& input': {
 					color: 'white!important',

@@ -4,7 +4,8 @@ import { BASE_URL } from '../utils/constants'
 import Pagination from './Pagination'
 import { useState } from 'react'
 
-export default function Table({ tableData: data }) {
+export default function Table({ tableData }) {
+
 	const map = new Map([
 		['UNRATED', 'text-[#e8e6e3]'],
 		['NEWBIE', 'text-[#988f81]'],
@@ -36,7 +37,7 @@ export default function Table({ tableData: data }) {
 				</tr>
 			</thead>
 			<tbody>
-				{(data.slice(rowsPerPage*page, Math.min(rowsPerPage*(page+1), data.length)))
+				{(tableData.slice(rowsPerPage*page, Math.min(rowsPerPage*(page+1), tableData.length)))
           .map((obj, ind) => (
 					<tr
 						className={`sm:text-[1.4vw] text-[2vw] ${map.get(obj.rank)} ${
@@ -80,7 +81,7 @@ export default function Table({ tableData: data }) {
 			</tbody>
 		</table>
 		<Pagination
-			count={data.length}
+			count={tableData.length}
 			options={[20, 50, {value: 999999, label: 'ALL'}]}
 			page={page}
 			setPage={setPage}
