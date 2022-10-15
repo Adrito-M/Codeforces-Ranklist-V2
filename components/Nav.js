@@ -1,4 +1,6 @@
 import GoogleButton from "./GoogleButton"
+import Router from "next/router";
+import { createHash } from 'crypto';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { firebaseApp } from "../utils/firebase-config";
 
@@ -8,6 +10,9 @@ export default function Nav() {
   const authUser = async () => {
     const { user: { email } } = await signInWithPopup(firebaseAuth, provider);
     console.log(email)
+    sessionStorage.setItem('email', email);
+    sessionStorage.setItem('hash', createHash('sha512').update(process.env.HASH_BEGIN+email+process.env.HASH_END).digest('hex'));
+    Router.push('/userinfo')
   };
   return (
     <div className='flex justify-end mx-[6vw] py-4 sticky top-0 bg-gradient-to-r from-bgblueleft to-bgblueright z-40'>

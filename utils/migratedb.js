@@ -506,6 +506,11 @@ export default function migrate() {
           name: "Aditya Aryaman Das",
           email: "aditya.aryamandas.mec21@itbhu.ac.in",
           username: "GraceousX"
+        },
+        {
+          name: "Abhijeet Kumar",
+          email: "abhijeet.kumar.cse21@itbhu.ac.in",
+          username: "cr1515"
         }
       ]
     info.forEach(entry => {

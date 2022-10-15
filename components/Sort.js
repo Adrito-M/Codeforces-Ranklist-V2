@@ -25,7 +25,7 @@ export default function Sort({ tableData, setTableData }) {
 	const [open, setOpen] = useState(false)
 	const [direction, setDirection] = useState(0)
 	const anchorRef = useRef(null)
-	const [selectedIndex, setSelectedIndex] = useState(2)
+	const [selectedIndex, setSelectedIndex] = useState(1)
 
 	const sortFunction = (direction, index) => (a, b) => {
 		const basis = options[index].field
@@ -45,8 +45,6 @@ export default function Sort({ tableData, setTableData }) {
 	const handleMenuItemClick = (index) => {
 		setDirection(0)
 		setSelectedIndex(index)
-		// const newData = tableData.sort(sortFunction(0, index))
-		// setTableData(newData)
 		setTableData([...tableData].sort(sortFunction(0, index)))
 		setOpen(false)
 	}

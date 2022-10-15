@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { BASE_URL } from '../utils/constants'
 import Pagination from './Pagination'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Table({ tableData }) {
 
@@ -22,6 +22,10 @@ export default function Table({ tableData }) {
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(20);
+
+	useEffect(() => {
+		setPage(0)
+	}, [tableData])
 
 	return (
     <>
@@ -50,7 +54,7 @@ export default function Table({ tableData }) {
 							<div className=" flex items-center my-2">
 								<Link href={`/stats/${obj.handle}`}>
 									<a>
-										<Image src={obj.titlePhoto} height="60" width="60" quality="100" className="rounded-full" />
+										<Image src={`https:${obj.titlePhoto}`} height="60" width="60" quality="100" className="rounded-full" />
 									</a>
 								</Link>
 								<div className="pl-[1vw] w-[16vw] text-ellipsis overflow-hidden">
