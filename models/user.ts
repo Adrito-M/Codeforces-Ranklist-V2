@@ -1,23 +1,47 @@
-import { createSchema, Type } from 'ts-mongoose'
+import { Schema, Document, model, Model, Types, models } from 'mongoose'
 
-const usernameSchema = createSchema({
-  username: Type.string({ required: true, unique: true, index: true }),
-  verified: Type.boolean({ required: true, default: true }),
-})
+interface IUser extends Document {
+  email: string
+  usernames: {
+    username: string
+    verified: boolean
+  }[]
+  name: string
+  dept: string
+  adm_yr: number
+}
 
-const userSchema = createSchema(
+export const userSchema = new Schema<IUser>(
   {
-    email: Type.string({ required: true, unique: true, index: true }),
-    usernames: Type.array({ required: true, unique: true, index: true }).of(
-      usernameSchema
-    ),
-    name: Type.string({ required: true }),
-    dept: Type.string({ required: true }),
-    adm_yr: Type.number({ required: true }),
+    email: { type: String, required: true, unique: true, index: true },
+    usernames: {
+      type: [
+        {
+          username: { type: String, required: true, index: true },
+          verified: { type: Boolean, required: true },
+        },
+      ],
+      required: true,
+      default: [],
+    },
+    name: { type: String, required: true },
+    dept: { type: String, required: true },
+    adm_yr: { type: Number, required: true },
   },
   { timestamps: true }
 )
-
-// const User = typedModel('User', userSchema);
-
-export default userSchema
+type IUserModel = Model<
+  IUser,
+  {},
+  {},
+  {},
+  Document<unknown, {}, IUser> &
+    Omit<
+      IUser & {
+        _id: Types.ObjectId
+      },
+      never
+    >,
+  any
+>
+export const User: IUserModel = models.User || model<IUser>('User', userSchema)
