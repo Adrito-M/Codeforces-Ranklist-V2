@@ -1,25 +1,11 @@
-const mongoose = require('mongoose')
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
+  experimental: {
+    serverActions: true,
+  },
   images: {
-    domains: [
-      'cdn-userpic.codeforces.com',
-      'userpic.codeforces.org'
-    ],
+    domains: ['userpic.codeforces.org', 'cdn-userpic.codeforces.com'],
   },
 }
 
-module.exports = (phase) => {
-  mongoose
-		.connect(process.env.MONGO_URI, {
-			useNewUrlParser: true,
-			useUnifiedTopology: true,
-		})
-		.then(() => {
-			console.log('connected to DB')
-		})
-  return nextConfig;
-};
+module.exports = nextConfig
