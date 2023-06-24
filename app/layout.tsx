@@ -2,6 +2,7 @@ import '@/app/globals.css'
 import { Montserrat } from 'next/font/google'
 import Provider from './components/provider'
 import { Analytics } from '@vercel/analytics/react'
+import { Footer } from '@/components/Footer'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function RootLayout({
           className={`${montserrat.className} bg-gradient-to-r from-bgblueleft to-bgblueright`}
         >
           {children}
+          <Footer />
         </body>
       </Provider>
       <Analytics />

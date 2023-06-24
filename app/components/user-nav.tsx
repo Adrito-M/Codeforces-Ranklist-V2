@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { getAuthServerSession } from '../api/auth/[...nextauth]/route'
 import { z } from 'zod'
-import LogoutButton from '@/components/LogoutButton'
+import { LogoutButton } from '@/components/LogoutButton'
 import Link from 'next/link'
 
 export async function UserNav() {
