@@ -1,6 +1,7 @@
 import '@/app/globals.css'
 import { Montserrat } from 'next/font/google'
 import Provider from './components/provider'
+import { Analytics } from '@vercel/analytics/react'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
           {children}
         </body>
       </Provider>
+      <Analytics />
     </html>
   )
 }
