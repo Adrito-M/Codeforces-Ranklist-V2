@@ -3,6 +3,7 @@ import { getAuthServerSession } from '@/app/api/auth/[...nextauth]/route'
 import { columns } from './components/columns'
 import { DataTable } from './components/data-table'
 import { UserNav } from './components/user-nav'
+import { Footer } from './components/footer'
 import { getData } from './data'
 
 export default async function TaskPage() {
@@ -25,6 +26,8 @@ export default async function TaskPage() {
         </div>
         <DataTable data={data} columns={columns} />
       </div>
+      {/* footer */}
+      <Footer/>
     </>
   )
 }
