@@ -6,7 +6,7 @@ export function Footer() {
     <div className='bg-gradient-to-r from-blue1left to-blue1right w-full flex justify-between flex-wrap text-white text-xs px-8 pt-3 pb-4'>
       <div className='w-full md:w-fit'>
         <div className='whitespace-nowrap m-auto w-fit md:w-full'>
-          Codeforces Ranklist<sup>TM</sup> V 2.0 d
+          Codeforces Ranklist<sup>TM</sup> V 2.0
         </div>
         <div className='text-xs md:text-sm w-full block md:flex'>
           <div className='m-auto w-fit md:w-full'>Made with 💖 by&nbsp;</div>

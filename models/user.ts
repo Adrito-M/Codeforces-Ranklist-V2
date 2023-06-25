@@ -17,7 +17,12 @@ export const userSchema = new Schema<IUser>(
     usernames: {
       type: [
         {
-          username: { type: String, required: true, index: true },
+          username: {
+            type: String,
+            required: true,
+            index: true,
+            set: (v: string) => v.toLowerCase(),
+          },
           verified: { type: Boolean, required: true },
         },
       ],

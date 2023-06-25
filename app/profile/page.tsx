@@ -65,13 +65,17 @@ export default async function ProfilePage() {
   usernames.forEach(
     username =>
       (username.verified = !!user.usernames.find(
-        _username => _username.username === username.handle
+        _username => _username.username === username.handle.toLowerCase()
       )?.verified)
   )
 
   return (
     <>
-      <Button variant='ghost' className='m-2' asChild>
+      <Button
+        variant='ghost'
+        className='m-2 focus-visible:ring-offset-0 focus-visible:ring-white'
+        asChild
+      >
         <Link href='/'>
           <MoveLeft className='mr-2' /> Back to Home
         </Link>

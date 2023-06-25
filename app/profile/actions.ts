@@ -46,9 +46,10 @@ export async function addHandle(handle: string) {
   const handleSchema = z
     .string()
     .refine(val => CODEFORCES_HANDLE_REGEX.test(val))
-  // console.log(handleSchema.safeParse(handle).success)
+    .transform(val => val.toLowerCase())
   if (!handleSchema.safeParse(handle).success) return false
   handle = handleSchema.parse(handle)
+
   try {
     const status: string = await fetch(
       `https://www.codeforces.com/api/user.info?handles=${handle}`,
@@ -79,7 +80,14 @@ export async function addHandle(handle: string) {
 }
 
 export async function deleteHandle(handle: string) {
-  if (!z.string().safeParse(handle).success) return
+  const CODEFORCES_HANDLE_REGEX = /^[a-zA-Z0-9_\-\.]{3,24}$/
+  const handleSchema = z
+    .string()
+    .refine(val => CODEFORCES_HANDLE_REGEX.test(val))
+    .transform(val => val.toLowerCase())
+  if (!handleSchema.safeParse(handle).success) return
+  handle = handleSchema.parse(handle)
+
   const session = await getAuthServerSession()
   if (!session) return
   const user = await User.findOne({ email: session.user.email })
@@ -92,7 +100,14 @@ export async function deleteHandle(handle: string) {
 }
 
 export async function initiateVerification(handle: string): Promise<string> {
-  if (!z.string().safeParse(handle).success) return ''
+  const CODEFORCES_HANDLE_REGEX = /^[a-zA-Z0-9_\-\.]{3,24}$/
+  const handleSchema = z
+    .string()
+    .refine(val => CODEFORCES_HANDLE_REGEX.test(val))
+    .transform(val => val.toLowerCase())
+  if (!handleSchema.safeParse(handle).success) return ''
+  handle = handleSchema.parse(handle)
+
   const session = await getAuthServerSession()
   if (!session) return ''
   const user = await User.findOne({ email: session.user.email })
