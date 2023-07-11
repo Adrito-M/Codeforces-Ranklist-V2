@@ -25,6 +25,8 @@ export type Username = {
   dept: string
   adm_yr: number
   email: string
+  contribution: number
+  friendOfCount: number
 }
 
 export type RANK_LITERALS =

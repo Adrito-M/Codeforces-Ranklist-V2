@@ -34,6 +34,8 @@ export async function getData(): Promise<Username[]> {
       rating: z.number().optional().default(0),
       maxRating: z.number().optional().default(0),
       titlePhoto: z.string().url(),
+      contribution: z.number().optional().default(0),
+      friendOfCount: z.number().optional().default(0),
     })
     const zodSchema = z.array(DataSchema)
 
@@ -53,6 +55,8 @@ export async function getData(): Promise<Username[]> {
         dept: usernames[i].dept,
         adm_yr: usernames[i].adm_yr,
         email: usernames[i].email,
+        contribution: result[i].contribution,
+        friendOfCount: result[i].friendOfCount,
       })
     }
 

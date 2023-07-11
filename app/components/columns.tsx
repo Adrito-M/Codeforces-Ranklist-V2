@@ -40,15 +40,17 @@ function colorise(
 
 export const columns: ColumnDef<Username>[] = [
   {
+    id: 'Index',
     accessorKey: 'idx',
     header: ({ column }) => <DataTableColumnHeader column={column} title='' />,
     cell: ({ row }) => (
-      <div className='text-center text-gray-400'>{row.original.idx}</div>
+      <div className='text-left text-gray-400'>{row.original.idx}</div>
     ),
-    enableSorting: false,
+    enableSorting: true,
     enableHiding: true,
   },
   {
+    id: 'Handle',
     accessorKey: 'handle',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title='Handle' />
@@ -75,6 +77,7 @@ export const columns: ColumnDef<Username>[] = [
     enableHiding: false,
   },
   {
+    id: 'Rating',
     accessorKey: 'rating',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title='RATING (MAX)' />
@@ -89,6 +92,57 @@ export const columns: ColumnDef<Username>[] = [
     enableHiding: true,
   },
   {
+    id: 'Max Rating',
+    accessorKey: 'maxRating',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title='MAX RATING' />
+    ),
+    cell: ({ row }) => (
+      <div className='pl-8'>
+        {colorise(row.original.maxRating.toString(), row.original.maxRank)}
+      </div>
+    ),
+    enableSorting: true,
+    enableHiding: true,
+  },
+  {
+    id: 'Contribution',
+    accessorKey: 'contribution',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title='CONTRIBUTION' />
+    ),
+    cell: ({ row }) => {
+      if (row.original.contribution > 0)
+        return (
+          <span className='text-green-500 pl-9'>
+            + {row.original.contribution}
+          </span>
+        )
+      else if (row.original.contribution < 0)
+        return (
+          <span className='text-red-500 pl-9'>
+            - {-row.original.contribution}
+          </span>
+        )
+      else return <span className='pl-9'>{row.original.contribution}</span>
+    },
+    enableSorting: true,
+    enableHiding: true,
+  },
+  {
+    id: 'Friend Of',
+    accessorKey: 'friendOfCount',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title='FRIEND OF' />
+    ),
+    cell: ({ row }) => (
+      <span className='pl-7'>{row.original.friendOfCount}</span>
+    ),
+    enableSorting: true,
+    enableHiding: true,
+  },
+  {
+    id: 'Department',
     accessorKey: 'dept',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title='DEPT' />
@@ -108,16 +162,20 @@ export const columns: ColumnDef<Username>[] = [
     enableHiding: true,
   },
   {
+    id: 'Admission Year',
     accessorKey: 'adm_yr',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title='ADM YR' />
     ),
-    cell: ({ row }) => <div className='pl-9'>{row.original.adm_yr}</div>,
+    cell: ({ row }) => <div className='pl-4'>{row.original.adm_yr}</div>,
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id))
     },
+    enableSorting: false,
+    enableHiding: true,
   },
   {
+    id: 'Rank',
     accessorKey: 'rank',
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title='RANK' />
