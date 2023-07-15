@@ -30,7 +30,7 @@ export default async function ProfilePage() {
     return <></>
   }
 
-  const url = `https://www.codeforces.com/api/user.info?handles=${user.usernames
+  const url = `https://codeforces.com/api/user.info?handles=${user.usernames
     .map(username => username.username)
     .join(';')}`
   console.log(url)

@@ -101,7 +101,7 @@ export default function VerifyHandle({
                 asChild
               >
                 <a
-                  href={`https://www.codeforces.com/problemset/problem/${details.contestId}/${details.problemIndex}`}
+                  href={`https://codeforces.com/problemset/problem/${details.contestId}/${details.problemIndex}`}
                   target='_blank'
                 >
                   {details.contestId}:{details.problemIndex}

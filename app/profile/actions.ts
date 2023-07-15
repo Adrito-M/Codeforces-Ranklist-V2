@@ -52,7 +52,7 @@ export async function addHandle(handle: string) {
 
   try {
     const status: string = await fetch(
-      `https://www.codeforces.com/api/user.info?handles=${handle}`,
+      `https://codeforces.com/api/user.info?handles=${handle}`,
       { cache: 'no-store' }
     )
       .then(res => res.json())
