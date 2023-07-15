@@ -27,28 +27,31 @@ export function DataTableToolbar<TData>({
       <div className='flex flex-1 items-center space-x-2'>
         <Input
           placeholder='Filter handles...'
-          value={(table.getColumn('handle')?.getFilterValue() as string) ?? ''}
+          value={(table.getColumn('Handle')?.getFilterValue() as string) ?? ''}
           onChange={event =>
-            table.getColumn('handle')?.setFilterValue(event.target.value)
+            table.getColumn('Handle')?.setFilterValue(event.target.value)
           }
           className='h-8 w-[150px] lg:w-[250px] border-bgblueleft'
         />
         <div className='hidden md:block'>
-          {table.getColumn('dept') && (
+          {table.getColumn('Department') && (
             <DataTableFacetedFilter
-              column={table.getColumn('dept')}
+              column={table.getColumn('Department')}
               title='Departments'
               options={departments}
             />
           )}
         </div>
         <div className='hidden md:block'>
-          {table.getColumn('adm_yr') && (
+          {table.getColumn('Admission Year') && (
             <DataTableFacetedFilter
-              column={table.getColumn('adm_yr')}
+              column={table.getColumn('Admission Year')}
               title='Admission Year'
               options={[
-                ...table.getColumn('adm_yr')?.getFacetedUniqueValues().keys()!,
+                ...table
+                  .getColumn('Admission Year')
+                  ?.getFacetedUniqueValues()
+                  .keys()!,
               ].map(yr => ({ label: yr, value: yr }))}
             />
           )}

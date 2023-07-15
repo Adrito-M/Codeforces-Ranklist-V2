@@ -95,12 +95,12 @@ export function DataTable<TData, TValue>({
         </TableHeader>
         <TableBody>
           {table.getRowModel().rows?.length ? (
-            table.getRowModel().rows.map(row => (
+            table.getRowModel().rows.map((row, index) => (
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && 'selected'}
                 className={`${
-                  row.index % 2
+                  index % 2
                     ? 'bg-gradient-to-r from-blue2left to-blue2right'
                     : ''
                 } text-white`}
