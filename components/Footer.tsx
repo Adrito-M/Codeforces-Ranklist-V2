@@ -9,7 +9,7 @@ export function Footer() {
           Codeforces Ranklist<sup>TM</sup> V 2.0
         </div>
         <div className='text-xs md:text-sm w-full block md:flex'>
-          <div className='m-auto w-fit md:w-full'>Made with 💖 by&nbsp;</div>
+          <div className='m-auto w-fit md:w-full'>Made by&nbsp;</div>
           <div className='m-auto w-fit md:w-full whitespace-nowrap'>
             <a
               href='https://www.github.com/Adrito-M'
