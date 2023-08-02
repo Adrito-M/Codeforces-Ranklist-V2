@@ -18,13 +18,21 @@ export function Footer() {
             >
               Adrito Mukherjee
             </a>
-            &nbsp; & &nbsp;
+            , &nbsp;
             <a
               href='https://www.github.com/somudas'
               target='_blank'
               className='underline underline-offset-4'
             >
               Soumyadeep Das
+            </a>
+            &nbsp; & &nbsp;
+            <a
+              href='https://www.github.com/'
+              target='_blank'
+              className='underline underline-offset-4'
+            >
+              Archit Kumar
             </a>
           </div>
         </div>
