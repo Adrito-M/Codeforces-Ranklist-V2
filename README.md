@@ -1,5 +1,17 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+It is a leaderboard for the Competetive Programming website [Codeforces](https://codeforces.com/) for students of [IIT (BHU) Varanasi](https://iitbhu.ac.in/).
+
+# Usage
+## How to add your handle
+ - First, signup using your institute alloted email ID. Note that your _Codeforces Handle_ need **not** be linked to insti ID.
+ - Click on the profile photo on the top-right and select  from the context menu.
+ - Click on the "Add New Handle" button in the bottom secton.
+ - Input your Codeforces Handle, hit _Continue_, and you shoul see a success message pop up.
+ - You should now see "Unverified" status in front of your Handle.
+ - To verify your handle, hit the verify button (the yellow _refresh_ icon besides the _trash-can_ icon) and follow the instructions. 
+
+# Development
 ## Getting Started
 
 First, run the development server:
